@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skydeo.Infrastructure", "Sk
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skydeo.Domain", "Skydeo.Domain\Skydeo.Domain.csproj", "{37A71767-803F-4DE9-9DD7-08BF53AD82FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skydeo.Wpf", "Skydeo.Wpf\Skydeo.Wpf.csproj", "{2F78A703-54E0-4EB7-97DE-3B756B620AD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skydeo.Kernel", "Skydeo.Kernel\Skydeo.Kernel.csproj", "{149B37F0-A351-42B0-883B-D933B9C49C10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{37A71767-803F-4DE9-9DD7-08BF53AD82FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37A71767-803F-4DE9-9DD7-08BF53AD82FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37A71767-803F-4DE9-9DD7-08BF53AD82FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F78A703-54E0-4EB7-97DE-3B756B620AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F78A703-54E0-4EB7-97DE-3B756B620AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F78A703-54E0-4EB7-97DE-3B756B620AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F78A703-54E0-4EB7-97DE-3B756B620AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{149B37F0-A351-42B0-883B-D933B9C49C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149B37F0-A351-42B0-883B-D933B9C49C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149B37F0-A351-42B0-883B-D933B9C49C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149B37F0-A351-42B0-883B-D933B9C49C10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
