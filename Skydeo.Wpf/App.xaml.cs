@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using Skydeo.Kernel;
-using Skydeo.Wpf.Services;
-using Skydeo.Wpf.Services.Contracts;
+﻿using System.Windows;
+using Ninject;
+using Skydeo.Wpf.Configuration;
 
 namespace Skydeo.Wpf
 {
-    /// <summary>
-    /// Logique d'interaction pour App.xaml
-    /// </summary>
     public partial class App
     {
+        private IKernel _iocKernel;
+
         protected override void OnStartup(StartupEventArgs e)
         {
+            base.OnStartup(e);
+
+            _iocKernel = new StandardKernel();
+            _iocKernel.Load(new IocConfiguration());
+
+            Current.MainWindow = _iocKernel.Get<MainWindow>();
+            Current.MainWindow.Show();
         }
     }
 }

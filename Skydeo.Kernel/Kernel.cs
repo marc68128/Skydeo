@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity;
+using Ninject;
 
 namespace Skydeo.Kernel
 {
@@ -15,7 +15,7 @@ namespace Skydeo.Kernel
         /// <summary>
         /// Unity container used to register and resolve types. 
         /// </summary>
-        private static readonly UnityContainer s_Container;
+        private static readonly IKernel _iocKernel;
 
         #endregion //Instance variables
 
@@ -27,7 +27,7 @@ namespace Skydeo.Kernel
         /// </summary>
         static Kernel()
         {
-            s_Container = new UnityContainer();
+            _iocKernel = new StandardKernel();
         }
 
         #endregion //Constructors
@@ -39,7 +39,7 @@ namespace Skydeo.Kernel
         /// </summary>
         public static T Resolve<T>()
         {
-            return s_Container.Resolve<T>();
+            return _iocKernel.Get<T>();
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Skydeo.Kernel
         {
             try
             {
-                output = s_Container.Resolve<T>();
+                output = _iocKernel.Get<T>();
                 return true;
             }
             catch (Exception)
@@ -60,44 +60,11 @@ namespace Skydeo.Kernel
         }
 
         /// <summary>
-        /// <see cref="UnityContainer.Resolve"/>
-        /// </summary>
-        public static object Resolve(Type type)
-        {
-            return s_Container.Resolve(type);
-        }
-
-        /// <summary>
-        /// <see cref="UnityContainer.Resolve"/>
-        /// </summary>
-        public static bool TryResolve(Type type, out object output)
-        {
-            try
-            {
-                output = s_Container.Resolve(type);
-                return true;
-            }
-            catch (Exception)
-            {
-                output = null;
-                return false;
-            }
-        }
-
-        /// <summary>
         /// <see cref="UnityContainer.ResolveAll"/>
         /// </summary>
         public static IEnumerable<T> ResolveCollection<T>()
         {
-            return s_Container.ResolveAll(typeof(T)).Select(i => (T)i);
-        }
-
-        /// <summary>
-        /// <see cref="UnityContainer.ResolveAll"/>
-        /// </summary>
-        public static IEnumerable<object> ResolveCollection(Type type)
-        {
-            return s_Container.ResolveAll(type);
+            return _iocKernel.GetAll<T>();
         }
 
         /// <summary>
@@ -105,7 +72,7 @@ namespace Skydeo.Kernel
         /// </summary>
         internal static void RegisterInstance<T>(T instance)
         {
-            s_Container.RegisterInstance<T>(instance);
+            _iocKernel.Bind<T>().ToConstant(instance);
         }
 
         #endregion //Methods
