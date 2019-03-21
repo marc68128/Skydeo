@@ -4,10 +4,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Skydeo.Wpf.Modals"
+             xmlns:userControls="clr-namespace:Skydeo.Wpf.UserControls"
+             xmlns:partials="clr-namespace:Skydeo.ViewModels.Partials;assembly=Skydeo.ViewModels"
+             xmlns:partials1="clr-namespace:Skydeo.Wpf.Views.Partials"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White" Margin="50">
-        <TextBlock>Add New skydiver</TextBlock>
-            
-    </Grid>
+
+    <UserControl.Resources>
+
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type partials:SkydiverFormViewModel}">
+            <partials1:SkydiverFormPartialView />
+        </DataTemplate>
+
+            </ResourceDictionary>
+    </UserControl.Resources>
+
+    <StackPanel Background="White" Margin="50">
+        <StackPanel Margin="20">
+            <TextBlock FontSize="30" Margin="0,10,0,20">Add New skydiver</TextBlock>
+            <userControls:FolderPicker Placeholder="Veuillez sélectionner le chemin vers votre caméra" Folder="{Binding DrivePath, Mode=TwoWay}"></userControls:FolderPicker>
+            <ContentControl Content="{Binding SkydiverFormViewModel}"></ContentControl>
+        </StackPanel>
+    </StackPanel>
 </UserControl>

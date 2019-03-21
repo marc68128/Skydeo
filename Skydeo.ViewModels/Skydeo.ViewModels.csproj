@@ -51,6 +51,7 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Modals\AddSkydiverModalViewModel.cs" />
     <Compile Include="Modals\BaseModalViewModel.cs" />
+    <Compile Include="Partials\SkydiverFormViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WelcomeViewModel.cs" />
